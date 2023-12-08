@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Computador Pessoal\\Documents\\GitHub\\JogoDAgua_Clone\\JogoDagua_Clone\\Assembly-CSharp.csproj",
+      "projectUniqueName": "C:\\Users\\Computador Pessoal\\Documents\\GitHub\\JogoDAgua\\JogoDagua_Clone\\Assembly-CSharp.csproj",
       "projectName": "Assembly-CSharp",
-      "projectPath": "C:\\Users\\Computador Pessoal\\Documents\\GitHub\\JogoDAgua_Clone\\JogoDagua_Clone\\Assembly-CSharp.csproj",
+      "projectPath": "C:\\Users\\Computador Pessoal\\Documents\\GitHub\\JogoDAgua\\JogoDagua_Clone\\Assembly-CSharp.csproj",
       "packagesPath": "C:\\Users\\Computador Pessoal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Computador Pessoal\\Documents\\GitHub\\JogoDAgua_Clone\\JogoDagua_Clone\\obj\\",
+      "outputPath": "C:\\Users\\Computador Pessoal\\Documents\\GitHub\\JogoDAgua\\JogoDagua_Clone\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Computador Pessoal\\AppData\\Roaming\\NuGet\\NuGet.Config"
