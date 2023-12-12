@@ -2644,7 +2644,7 @@ GameObject:
   - component: {fileID: 668320463}
   - component: {fileID: 668320467}
   - component: {fileID: 668320471}
-  - component: {fileID: 668320472}
+  - component: {fileID: 668320473}
   m_Layer: 9
   m_Name: Jogador
   m_TagString: Player
@@ -2777,8 +2777,8 @@ MonoBehaviour:
   JumpForce: 7.3
   isJumping: 0
   Horizontal_Input: 0
---- !u!61 &668320472
-BoxCollider2D:
+--- !u!70 &668320473
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2790,19 +2790,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.06}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.89, y: 1.34}
-    newSize: {x: 0.89, y: 1.34}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 1.34}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.086367644, y: -0.0045680925}
+  m_Size: {x: 0.48129678, y: 1.2969636}
+  m_Direction: 0
 --- !u!1001 &686753018
 PrefabInstance:
   m_ObjectHideFlags: 0

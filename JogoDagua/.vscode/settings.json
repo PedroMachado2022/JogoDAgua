@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "JogoDagua_Clone.sln"
+    "dotnet.defaultSolution": "JogoDagua.sln"
 }

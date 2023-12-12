@@ -19,8 +19,6 @@ public class Player : MonoBehaviour{
     // Variável para contrar a animação do player
     private Animator anim;
 
-    private bool Jump_Button;
-
     private bool Jump_input;
     private bool Right;
     private bool Left;
@@ -93,7 +91,6 @@ public class Player : MonoBehaviour{
 
     // Função que verifica quando o jogador clica no botão de pular
     public void Veri_Jump(){
-        
         // Tratamento para o pulo acontecer apenas uma vez (Evitar pulo duplo e pulo infinito)
         if (!isJumping){
             Jump_input = true;
@@ -118,34 +115,17 @@ public class Player : MonoBehaviour{
         }
     }
 
-
         // Método padrão da Unity para verificar Colisões
-        void OnCollisionEnter2D(Collision2D collsion){
+    void OnCollisionEnter2D(Collision2D collsion){
             if(collsion.gameObject.layer == 8 || collsion.gameObject.layer == 11){
                 isJumping = false;
-            }
-
-            if(collsion.gameObject.layer == 13){
-                //isJumping = true;
-                GetComponent<Collider2D>().enabled = false;
-                //body.constraints = RigidbodyConstraints2D.;
-                print("To na parade");
             }
         }
 
         // Método padrão da Unity para verificar Colisões
-        void OnCollisionExit2D(Collision2D collsion){
-            if(collsion.gameObject.layer == 8 || collsion.gameObject.layer == 11){
+    void OnCollisionExit2D(Collision2D collsion){
+            if(collsion.gameObject.layer == 8 || collsion.gameObject.layer == 11 || collsion.gameObject.layer == 12){
                 isJumping = true;
-                print("Não posso pular");
             }
-
-            if(collsion.gameObject.layer == 13){
-                //isJumping = true;
-                GetComponent<Collider2D>().enabled = true;
-                //body.constraints = RigidbodyConstraints2D.None;
-                print("Saí da parade");
-            }
-            
         }
 }
