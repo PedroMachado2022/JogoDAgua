@@ -130,6 +130,7 @@ public class interacao : MonoBehaviour
         obj_botao_ação = GameObject.Find("Ação");           //Pegamos o GameObject do botão
         script_botao_ação = obj_botao_ação.GetComponent<botao>();       //E o script do botão
         obj_status = GameObject.Find("Status");     //Vamos acesasr o objeto do status
+
         script_status = obj_status.GetComponent<status>(); //Acessar o seu script
         obj_pensamento = GameObject.Find("Pensamento");
         //bd = GameObject.Find("Mybd");           //Pegamos o GameObject do botão
@@ -148,7 +149,7 @@ public class interacao : MonoBehaviour
             if (acao == true || script_botao_ação.acao == true)           //Se teclou enter ou tinha pressionado o botão de ação na tela
             {
                 datahora = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
+                //print(datahora);
                 if ((item == "Nuvem")&&(usou_nuvem==false))
                 {
                     script_status.Vida = 100;
@@ -198,21 +199,21 @@ public class interacao : MonoBehaviour
                     script_status.vazamento = script_status.vazamento - 1;            //Anotamos que temos menos um item vazando
 
                     //////////conexão
-                    if (ja_criado == false)
-                    {
+                    // if (ja_criado == false)
+                    // {
                         
-                        momento_decriação = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        script_bd.Insert_in_jogadas(script_status.jogo, script_status.fase, script_status.Pontos, Convert.ToInt32(script_status.Vida), id_ação, item, "fechou", "boa",
-                        momento_decriação, momento_decriação);
-                        ja_criado = true;
+                    //     momento_decriação = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    //     script_bd.Insert_in_jogadas(script_status.jogo, script_status.fase, script_status.Pontos, Convert.ToInt32(script_status.Vida), id_ação, item, "fechou", "boa",
+                    //     momento_decriação, momento_decriação);
+                    //     ja_criado = true;
 
-                    }
-                    else
-                    {
-                                         //(int jogo_id, int fase, int pontos, int vida, int objeto_id, string objeto, string acao, string intencao, string created, string modified)
-                        script_bd.Insert_in_jogadas(script_status.jogo, script_status.fase, script_status.Pontos, Convert.ToInt32(script_status.Vida), id_ação, item, "fechou", "boa",
-                         momento_decriação, String.Format("{0:u}", datahora));
-                    }
+                    // }
+                    // else
+                    // {
+                    //                      //(int jogo_id, int fase, int pontos, int vida, int objeto_id, string objeto, string acao, string intencao, string created, string modified)
+                    //     script_bd.Insert_in_jogadas(script_status.jogo, script_status.fase, script_status.Pontos, Convert.ToInt32(script_status.Vida), id_ação, item, "fechou", "boa",
+                    //      momento_decriação, String.Format("{0:u}", datahora));
+                    // }
                 }
             }
         }

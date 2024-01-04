@@ -7,6 +7,7 @@ Mais informações:     https://github.com/SapoGitHub/Repositorio-Geral/wiki/Jog
 2018
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,7 +34,10 @@ public class objeto : MonoBehaviour {
         status script = objeto.GetComponent<status>();      //Acessar o seu script
 
         if (obj == "Plataforma")                            //Se o objeto atual é a plataforma
-        { script.Plataforma = true; }                       //Registramos que pegamos
+        { script.Plataforma = true; 
+            Debug.Log("Tocamos na plataforma");
+            Debug.Log(script.Plataforma);
+        }                       //Registramos que pegamos
         else if (obj=="Filtro")                             //O mesmo para o filtro
         { script.Filtro = true; }
         else if (obj == "Canos")                           //Os pregos

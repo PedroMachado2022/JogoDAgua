@@ -36,20 +36,19 @@ public class vitoria : MonoBehaviour
         //Se temos a chave
         if (script_status.Chave == true)
         {
-            script_bd.Salvar();
+            //script_bd.Salvar();
             if (Application.internetReachability != NetworkReachability.NotReachable)
             {
                 //tem internet
                 
-                script_bd.EnviarProBanco();
+                //script_bd.EnviarProBanco();
             }
-            if (script_status.fase == 1)
-            {
+            if (script_status.fase == 1){
                 string datahora = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
 
                 //(              int user_id,   string dificuldade,    int finalizado,     int pontos      ,       int problemas              ,     int abertos      ,     string mascote    ,   string created     ,         string modified               )
-                script_bd.Insert_in_jogo(script_bd.idjogo,   0      ,   script_status.difi,          1       , script_status.Pontos,   11-  script_status.vazamento, script_status.abertos, script_status.mascote , script_status.criada , datahora);
+                //script_bd.Insert_in_jogo(script_bd.idjogo,   0      ,   script_status.difi,          1       , script_status.Pontos,   11-  script_status.vazamento, script_status.abertos, script_status.mascote , script_status.criada , datahora);
                 script_status.Chave = false;
                 script_status.Vida = 100;
                 script_status.vazamento = 8;
@@ -59,16 +58,18 @@ public class vitoria : MonoBehaviour
 
                 SceneManager.LoadScene(3);  //Carregamos a próxima cena
             }
-            else
-            {
-                script_bd.Salvar();
-                if (Application.internetReachability != NetworkReachability.NotReachable)
-                {
-                    //tem internet
+            else if(script_status.fase == 2){
+                // script_bd.Salvar();
+                // if (Application.internetReachability != NetworkReachability.NotReachable)
+                // {
+                //     //tem internet
                     
-                    script_bd.EnviarProBanco();
-                }
+                //     script_bd.EnviarProBanco();
+                // }
+                script_status.fase = 3;
                 SceneManager.LoadScene(4);  //Carregamos a final
+            }else {
+                SceneManager.LoadScene(5);
             }
             
         }

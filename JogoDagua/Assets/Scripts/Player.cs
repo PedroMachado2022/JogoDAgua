@@ -8,29 +8,61 @@ using UnityEngine;
 public class Player : MonoBehaviour{
 
     public float Speed;
-    public float JumpForce;
-
-    // Variáveis referentes ao pulo do personagem
-    public bool isJumping;
-
+    
     // Variável para controlar o corpo do jogador
     private Rigidbody2D body;
 
     // Variável para contrar a animação do player
     private Animator anim;
-
-    private bool Jump_input;
+   
     private bool Right;
     private bool Left;
 
     public float Horizontal_Input;
 
+
+    private status statusScript;
+
+    public string mascoteValue;
+
+    // ------------------ VARIÁVEIS PARA CONTROLAR O PULO DO PERSONAGEM ------------------ \\
+    // Força do pulo
+    public float JumpForce;
+
+    // Se está pulando
+    public bool isJumping;
+    // Se pode pular
+
+    // Entrada do pulo pelo botão "pular" da tela (mobile)
+    private bool Jump_input;
+
+
+
     // Start is called before the first frame update
     void Start(){
 
+        GameObject statusObject = GameObject.Find("Status");
+        anim = GetComponent<Animator>();
+
+        if (statusObject != null) {
+           
+            statusScript = statusObject.GetComponent<status>();
+            mascoteValue = statusScript.mascote;
+            //print(mascoteValue);
+            if (mascoteValue == "humanoide"){
+                print(mascoteValue);
+                anim.SetLayerWeight(1, 1f);
+            }
+             else {
+                // Se não for "humanoide", pode ajustar o peso da camada para zero ou outro valor desejado
+                anim.SetLayerWeight(1, 0f);
+            }
+            
+        }
         // Iniciamos a variável recebendo os valores do corpo do player na Unity
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
         
     }
 
@@ -100,10 +132,10 @@ public class Player : MonoBehaviour{
     // Verificamos se a função Jump foi ativada
     public void Jump()
     {
-        // Input do teclado
         if (Input.GetButtonDown("Jump") && !isJumping){
-            // Criamos um impulso no jogador no sentido do eixo Y.
+    
             body.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+
         }
         
         // Input da tela
@@ -112,19 +144,20 @@ public class Player : MonoBehaviour{
             body.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
             // Retiramos a condição de pulo do player para o pulo acontecer apenas uma vez (Evitar pulo duplo e pulo infinito)
             Jump_input = false;
+        
         }
     }
 
-        // Método padrão da Unity para verificar Colisões
+    // Método padrão da Unity para verificar Colisões
     void OnCollisionEnter2D(Collision2D collsion){
             if(collsion.gameObject.layer == 8 || collsion.gameObject.layer == 11){
-                isJumping = false;
+                isJumping = false;   
             }
         }
 
-        // Método padrão da Unity para verificar Colisões
+    // Método padrão da Unity para verificar Colisões
     void OnCollisionExit2D(Collision2D collsion){
-            if(collsion.gameObject.layer == 8 || collsion.gameObject.layer == 11 || collsion.gameObject.layer == 12){
+            if(collsion.gameObject.layer == 8 || collsion.gameObject.layer == 11){
                 isJumping = true;
             }
         }

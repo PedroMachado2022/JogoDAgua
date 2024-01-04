@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grass
+  - Plataforma
+  - Caixa
+  - Canos
+  - Filtro
   layers:
   - Default
   - TransparentFX

@@ -28,7 +28,9 @@ public class status : MonoBehaviour {
     public int fase;
     [SerializeField]  
     public float dificuldade;     //Nível de dificuldade
+    
     public int vazamento;       //Quantidade de itens vazando
+    
     public bool perdeu;        //Variável indicando se já perdemos
 
 
@@ -39,39 +41,43 @@ public class status : MonoBehaviour {
     public int abertos;
     
 
-
-
-
-
     // Use this for initialization
-    void Awake () //Função chamada quando o objeto é inicializado, antes mesmo da Start
-    {
+    void Awake () {//Função chamada quando o objeto é inicializado, antes mesmo da Start
 
         GameObject destruir = GameObject.Find("Menu");  //Vamos pegar o objeto da cena anterior
-        menu script = destruir.GetComponent<menu>();    //Seu scrpit
-        Vida = 100;
-        Pontos = 0;
+       
 
-        Pregos = false;
-        Caixa = false;
-        Filtro = false;
-        Plataforma = false;
-        Chave = false;
-        Regador = 0;
-        Ferramentas=0;
-        vazamento = 11;
-        fase = 1;
-        dificuldade=script.dificuldade;             //Carregamos a dificuldade selecionada
-        alternativo = script.alternativo;            //A skin selecionada
-        perdeu = false;
-        difi = script.difi;
-        criada = script.criada;
-        mascote = script.mascote;
-        abertos = 0;
-        jogo = script.jogo;
+        if (destruir != null){
+                menu script = destruir.GetComponent<menu>();    //Seu scrpit
+                Vida = 100;
+                Pontos = 0;
 
-        Object.Destroy(destruir);                   //Destruímos o objeto
-        DontDestroyOnLoad(this);                    //Vamos conservar na outra cena
+                Pregos = false;
+                Caixa = false;
+                Filtro = false;
+                Plataforma = false;
+                Chave = false;
+                
+                Regador = 0;
+                Ferramentas=0;
+                vazamento = 11;
+                fase = 1;
+                dificuldade=script.dificuldade;             //Carregamos a dificuldade selecionada
+                alternativo = script.alternativo;            //A skin selecionada
+                perdeu = false;
+                difi = script.difi;
+                criada = script.criada;
+                mascote = script.mascote;
+                abertos = 0;
+                jogo = script.jogo;
+
+                Object.Destroy(destruir);                   //Destruímos o objeto
+                DontDestroyOnLoad(this);  
+
+
+                //DontDestroyOnLoad(gameObject);
+        }
+        
     }
 
     // Update is called once per frame
@@ -81,13 +87,14 @@ public class status : MonoBehaviour {
         {
 
             perdeu = true;
-            SceneManager.LoadScene(4);                  //Carregamos a próxima cena
+            SceneManager.LoadScene(5);                  //Carregamos a próxima cena
             
         }
         else
         {
 
             Vida = Vida - 0.005F * dificuldade * vazamento;     //Atualizar a vida de acordo com a dificuldade e a quantidade de itens vazando
+            //print("Vida: "+Vida);
 
         }
 

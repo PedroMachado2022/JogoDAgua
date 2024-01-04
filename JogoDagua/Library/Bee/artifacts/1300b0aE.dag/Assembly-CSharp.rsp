@@ -357,6 +357,7 @@
 "Assets/Scripts/botao.cs"
 "Assets/Scripts/camera.cs"
 "Assets/Scripts/Confirmacao.cs"
+"Assets/Scripts/Drag_Drop.cs"
 "Assets/Scripts/ferramentas.cs"
 "Assets/Scripts/final.cs"
 "Assets/Scripts/fundinho.cs"
@@ -370,8 +371,8 @@
 "Assets/Scripts/Pensamento.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/SaveName.cs"
+"Assets/Scripts/Scene3_Controller.cs"
 "Assets/Scripts/status.cs"
-"Assets/Scripts/Tools.cs"
 "Assets/Scripts/vitoria.cs"
 -langversion:9.0
 

@@ -21,7 +21,7 @@ public class fundinho : MonoBehaviour {
     { 
         if((alvo.transform.position.x >= -5.8)  && (alvo.transform.position.x <= 85.2))
         {
-            myRB.velocity = (rigid_player.velocity / 2) * (new Vector2(1, 0));
+            myRB.velocity = -1*(rigid_player.velocity / 4) * (new Vector2(1, 0));
         }
         else
         {

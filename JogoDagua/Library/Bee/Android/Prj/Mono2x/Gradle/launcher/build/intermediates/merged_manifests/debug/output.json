@@ -21,7 +21,7 @@
       "properties": {
         "packageId": "com.furg.jogoagua",
         "split": "",
-        "minSdkVersion": "22"
+        "minSdkVersion": "28"
       }
     }
   ]

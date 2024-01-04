@@ -53,12 +53,12 @@
     <Analyzer Include="C:\Users\Computador Pessoal\.vscode\extensions\visualstudiotoolsforunity.vstuc-0.9.3\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\final.cs" />
     <Compile Include="Assets\Scripts\Confirmacao.cs" />
     <Compile Include="Assets\Scripts\status.cs" />
     <Compile Include="Assets\Scripts\interacao.cs" />
     <Compile Include="Assets\Scripts\SaveName.cs" />
+    <Compile Include="Assets\Scripts\Drag_Drop.cs" />
     <Compile Include="Assets\Scripts\menu.cs" />
     <Compile Include="Assets\Scripts\hud.cs" />
     <Compile Include="Assets\Scripts\botao.cs" />
@@ -70,8 +70,9 @@
     <Compile Include="Assets\Scripts\fundinho.cs" />
     <Compile Include="Assets\Scripts\camera.cs" />
     <Compile Include="Assets\Scripts\objeto.cs" />
-    <Compile Include="Assets\Scripts\Tools.cs" />
     <Compile Include="Assets\Scripts\vitoria.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Scene3_Controller.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\exemplo.txt" />

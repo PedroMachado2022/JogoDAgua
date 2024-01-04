@@ -11,6 +11,7 @@ Mais informações:     https://github.com/SapoGitHub/Repositorio-Geral/wiki/Jog
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class hud : MonoBehaviour {
@@ -44,13 +45,20 @@ public class hud : MonoBehaviour {
     //Função para atualizar a barra de vida
     private void barra()
     {
+        if(script.fase != 3){
         preenchido = 1 - (script.Vida / 100);       //Convertamos pra escala entre 0 e 1
-        if (preenchido != conteudo.fillAmount)      //Se a vida atual é diferente da salva
-        { conteudo.fillAmount = preenchido;    }    //Atualizamos
+            if (preenchido != conteudo.fillAmount) {      //Se a vida atual é diferente da salva
+                    conteudo.fillAmount = preenchido;    
+            }  //Atualizamos
+
     
-        //Vamos configurar pra printar na tela só com uma diferença de 1 ponto
-        vidatela = script.Vida - script.Vida % 1;
-        valor.text = "" + vidatela;
+            //Vamos configurar pra printar na tela só com uma diferença de 1 ponto
+            vidatela = script.Vida - script.Vida % 1;
+            valor.text = "" + vidatela;
+        }else {
+            
+        }
+       
     }
 
     //Função para atualizar a pontuação na tela
