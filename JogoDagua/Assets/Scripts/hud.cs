@@ -1,4 +1,4 @@
-﻿/*
+/*
 JOGO DA ÁGUA: Controle dos status do personagem
 Desenvolvido por:     Jhordan Silveira de Borba
 E-mail:               jhordandecacapava@gmail.com
@@ -46,7 +46,7 @@ public class hud : MonoBehaviour {
     private void barra()
     {
         if(script.fase != 3){
-        preenchido = 1 - (script.Vida / 100);       //Convertamos pra escala entre 0 e 1
+            preenchido = 1 - (script.Vida / 100);       //Convertamos pra escala entre 0 e 1
             if (preenchido != conteudo.fillAmount) {      //Se a vida atual é diferente da salva
                     conteudo.fillAmount = preenchido;    
             }  //Atualizamos

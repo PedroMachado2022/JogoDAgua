@@ -3,33 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Drag_Drop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
-{
-    
+public class Drag_Drop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler{
+    public status Status_Script;
+
     [SerializeField] private RectTransform _transform;
 
     [SerializeField] private Canvas _canvas;
+    
+    [SerializeField] private CanvasGroup _canvasGroup;
 
     public void OnPointerDown(PointerEventData pointerEventData){
 
-            Debug.Log("Foi");
+            //Debug.Log("Foi");
     
     }
 
     public void OnBeginDrag(PointerEventData eventData){
 
-            Debug.Log("Início");
+            _canvasGroup.blocksRaycasts = false;
     }
 
     public void OnEndDrag(PointerEventData eventData){
 
-            Debug.Log("fim");
+           _canvasGroup.blocksRaycasts = true;
 
     }
 
     public void OnDrag(PointerEventData eventData){
-        
+        //Passamos a posição do click para o objeto
          _transform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
-        Debug.Log("Era pra ta se movendo");
     }
+
 }

@@ -8,6 +8,11 @@ Mais informações:     https://github.com/SapoGitHub/Repositorio-Geral/wiki/Jog
 Atualizado por:     Thayllor Peres Devos dos Santos
 E-mail:               thayllordossantos@gmail.com
 2019
+
+Atualizado por:     Pedro Machado Araújo
+E-mail:             pedro.machado.rs@hotmail.com
+2024
+
 */
 
 using UnityEngine;
@@ -33,6 +38,10 @@ public class status : MonoBehaviour {
     
     public bool perdeu;        //Variável indicando se já perdemos
 
+    public int win_Condition;
+
+    public int lose_Condition;
+
 
     public string difi;
     public int jogo;/// (request no banco local para saber em q jogo esta)
@@ -57,6 +66,9 @@ public class status : MonoBehaviour {
                 Filtro = false;
                 Plataforma = false;
                 Chave = false;
+
+                win_Condition = 0;
+                lose_Condition = 0;
                 
                 Regador = 0;
                 Ferramentas=0;
@@ -75,7 +87,7 @@ public class status : MonoBehaviour {
                 DontDestroyOnLoad(this);  
 
 
-                //DontDestroyOnLoad(gameObject);
+                
         }
         
     }

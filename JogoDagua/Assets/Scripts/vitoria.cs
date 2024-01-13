@@ -9,6 +9,11 @@ Mais informações:     https://github.com/SapoGitHub/Repositorio-Geral/wiki/Jog
 Atualizado por:     Thayllor Peres Devos dos Santos
 E-mail:               thayllordossantos@gmail.com
 2019
+
+Atualizado por:     Pedro Machado Araújo
+E-mail:             pedro.machado.rs@hotmail.com
+2024
+
 */
 
 using UnityEngine;
@@ -37,8 +42,7 @@ public class vitoria : MonoBehaviour
         if (script_status.Chave == true)
         {
             //script_bd.Salvar();
-            if (Application.internetReachability != NetworkReachability.NotReachable)
-            {
+            if (Application.internetReachability != NetworkReachability.NotReachable){
                 //tem internet
                 
                 //script_bd.EnviarProBanco();
@@ -54,8 +58,10 @@ public class vitoria : MonoBehaviour
                 script_status.vazamento = 8;
                 script_status.Regador = 0;
                 script_status.Ferramentas = 0;
-                script_status.fase = 2;
+                
+                print("Estamos na fase: " + script_status.fase);
 
+                script_status.fase = 2;
                 SceneManager.LoadScene(3);  //Carregamos a próxima cena
             }
             else if(script_status.fase == 2){
@@ -66,9 +72,23 @@ public class vitoria : MonoBehaviour
                     
                 //     script_bd.EnviarProBanco();
                 // }
-                script_status.fase = 3;
+                
+                script_status.Vida = 100;
+                script_status.vazamento = 11;
+
+                print("Estamos na fase: " + script_status.fase);
+
+                if(script_status.win_Condition == 6){
+                    Debug.Log("Ganhamos!");
+                }
+                else if(script_status.win_Condition < 6 && script_status.lose_Condition >= 1) {
+                    Debug.Log("Perdemo carai");  
+                }
+                
                 SceneManager.LoadScene(4);  //Carregamos a final
-            }else {
+            }
+            
+            else {
                 SceneManager.LoadScene(5);
             }
             

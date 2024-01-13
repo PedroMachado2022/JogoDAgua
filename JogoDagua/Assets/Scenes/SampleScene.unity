@@ -5522,6 +5522,7 @@ GameObject:
   - component: {fileID: 1644011354}
   - component: {fileID: 1644011356}
   - component: {fileID: 1644011355}
+  - component: {fileID: 1644011357}
   m_Layer: 5
   m_Name: Vida
   m_TagString: Untagged
@@ -5570,7 +5571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3eb1dc2ca80133e4d9bf0b7e2ac449aa, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5588,6 +5589,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644011353}
   m_CullTransparentMesh: 0
+--- !u!114 &1644011357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644011353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c16d22c69333a458f87f674aa7bfec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rosto: {fileID: 1644011355}
 --- !u!1 &1710883303
 GameObject:
   m_ObjectHideFlags: 0

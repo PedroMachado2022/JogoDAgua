@@ -9,6 +9,7 @@ TagManager:
   - Caixa
   - Canos
   - Filtro
+  - Caixa_Reservatorio
   layers:
   - Default
   - TransparentFX
