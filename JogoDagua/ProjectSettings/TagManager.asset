@@ -10,6 +10,9 @@ TagManager:
   - Canos
   - Filtro
   - Caixa_Reservatorio
+  - End_Layer
+  - Cano 2
+  - Cano 3
   layers:
   - Default
   - TransparentFX

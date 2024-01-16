@@ -359,6 +359,7 @@
 "Assets/Scripts/Color_Items.cs"
 "Assets/Scripts/Confirmacao.cs"
 "Assets/Scripts/Drag_Drop.cs"
+"Assets/Scripts/EndGame_Script.cs"
 "Assets/Scripts/ferramentas.cs"
 "Assets/Scripts/final.cs"
 "Assets/Scripts/fundinho.cs"

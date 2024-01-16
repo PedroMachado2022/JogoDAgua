@@ -1,4 +1,4 @@
-﻿/*
+/*
 JOGO DA ÁGUA: Controle das interações a porta final
 Desenvolvido por:     Jhordan Silveira de Borba
 E-mail:               jhordandecacapava@gmail.com
@@ -28,14 +28,27 @@ public class vitoria : MonoBehaviour
     public GameObject bd;
     public Mybdscript script_bd;
 
+
+    private bool Reset = false;
+    private bool Quit_conditional = false;
+
     //Função para marcar que entramos dentro
-    private void Start()
-    {
+    private void Start(){
         obj_status = GameObject.Find("Status");     //Vamos acesasr o objeto do status
         script_status = obj_status.GetComponent<status>();
         //bd = GameObject.Find("Mybd");           //Pegamos o GameObject do botão
         //script_bd = bd.GetComponent<Mybdscript>();
     }
+
+    public void Update(){
+        if(script_status.fase == 2){
+            REstart();
+            QuitGame();
+        }else{
+
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     { 
         //Se temos a chave
@@ -77,14 +90,6 @@ public class vitoria : MonoBehaviour
                 script_status.vazamento = 11;
 
                 print("Estamos na fase: " + script_status.fase);
-
-                if(script_status.win_Condition == 6){
-                    Debug.Log("Ganhamos!");
-                }
-                else if(script_status.win_Condition < 6 && script_status.lose_Condition >= 1) {
-                    Debug.Log("Perdemo carai");  
-                }
-                
                 SceneManager.LoadScene(4);  //Carregamos a final
             }
             
@@ -94,4 +99,33 @@ public class vitoria : MonoBehaviour
             
         }
     }
+
+    // Função utilizada para receber o click de reiniciar o jogo após o player ganhar
+    public void ResetGame(){
+        Reset = true;
+    }
+
+    // Função quer reinicia o jogo
+    public void REstart(){
+        if(Reset == true){
+            // Destruimos o script que guarda tudo do jogo, para reiniciar em branco
+            GameObject.Destroy(obj_status);
+            // Carrega o menu de seleção
+            SceneManager.LoadScene(1);
+            
+            //GameObject.Destroy(bd);
+        }
+    }
+
+    public void QuitButton(){
+        Quit_conditional = true;
+    }
+
+    public void QuitGame(){
+        if(Quit_conditional == true){
+            Application.Quit();
+            print("Saiu do jogo!");
+        }
+    }
+
 }
