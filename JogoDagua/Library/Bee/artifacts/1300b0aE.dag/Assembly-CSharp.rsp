@@ -372,6 +372,7 @@
 "Assets/Scripts/menu.cs"
 "Assets/Scripts/Mybdscript.cs"
 "Assets/Scripts/objeto.cs"
+"Assets/Scripts/Objetos_render.cs"
 "Assets/Scripts/Pensamento.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/SaveName.cs"

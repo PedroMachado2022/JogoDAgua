@@ -13,6 +13,13 @@ TagManager:
   - End_Layer
   - Cano 2
   - Cano 3
+  - Plataforma_Reservatorio
+  - Cano1_Reservatorio
+  - Cano2_Reservatorio
+  - Cano3_Reservatorio
+  - Filtro_Reservatorio
+  - Layer_MAP3
+  - Layer_MAP1
   layers:
   - Default
   - TransparentFX

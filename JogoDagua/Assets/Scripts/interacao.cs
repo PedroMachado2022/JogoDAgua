@@ -179,7 +179,7 @@ public class interacao : MonoBehaviour
                     
 
                     //(int jogo_id, int fase, int pontos, int vida, int objeto_id, string objeto, string acao, string intencao, string created, string modified)
-                    script_bd.Insert_in_jogadas(script_status.jogo, script_status.fase, script_status.Pontos, Convert.ToInt32(script_status.Vida), id_ação, item, "abriu", "ruim", momento_decriação,datahora);
+                    //script_bd.Insert_in_jogadas(script_status.jogo, script_status.fase, script_status.Pontos, Convert.ToInt32(script_status.Vida), id_ação, item, "abriu", "ruim", momento_decriação,datahora);
 
                 }
                 else                                                    //Se estava ligado

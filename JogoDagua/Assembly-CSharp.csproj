@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\botao.cs" />
     <Compile Include="Assets\Scripts\jogador.cs" />
     <Compile Include="Assets\Scripts\ferramentas.cs" />
+    <Compile Include="Assets\Scripts\Objetos_render.cs" />
     <Compile Include="Assets\Scripts\Scene3_Controller.cs" />
     <Compile Include="Assets\Scripts\LifeHUD_controller.cs" />
     <Compile Include="Assets\Scripts\Pensamento.cs" />

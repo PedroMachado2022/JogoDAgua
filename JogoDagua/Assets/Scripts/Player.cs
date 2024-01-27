@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Security.AccessControl;
+using UnityEditor.Callbacks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour{
 
@@ -12,7 +14,7 @@ public class Player : MonoBehaviour{
     // Variável para controlar o corpo do jogador
     private Rigidbody2D body;
 
-    // Variável para contrar a animação do player
+    // Variável para conter a animação do player
     private Animator anim;
    
     private bool Right;
@@ -31,11 +33,9 @@ public class Player : MonoBehaviour{
 
     // Se está pulando
     public bool isJumping;
-    // Se pode pular
-
+    
     // Entrada do pulo pelo botão "pular" da tela (mobile)
-    private bool Jump_input;
-
+    public bool jumpFree;
 
 
     // Start is called before the first frame update
@@ -66,8 +66,7 @@ public class Player : MonoBehaviour{
         
     }
 
-    // Update is called once per frame
-    void Update(){
+    void FixedUpdate(){
         Move();
         Jump();
     }
@@ -81,22 +80,41 @@ public class Player : MonoBehaviour{
         body.velocity = new Vector2(movement.x * Speed, body.velocity.y);
 
 
-        // Direita
-        if (Right){
-            // Animação e direção da imagem do jogador
+        Vector3 movement2 = new Vector2(Input.GetAxis("Horizontal"), 0f);
+        body.velocity = new Vector2(movement2.x * Speed, body.velocity.y);
+
+        if (Input.GetAxis("Horizontal") > 0){
             anim.SetBool("running", true);
-            transform.eulerAngles = new Vector2(0f, 0f);     
+            transform.eulerAngles = new Vector2(0f, 0f); 
         }
 
-        // Esquerda
-        else if (Left){
-            // Animação e direção da imagem do jogador
+        else if (Input.GetAxis("Horizontal") < 0){
+            
             anim.SetBool("running", true);
             transform.eulerAngles = new Vector2(0f, 180f);
         }
-        else{
+
+        else {
             anim.SetBool("running", false);
         }
+        
+
+        // // Direita
+        // if (Right){
+        //     // Animação e direção da imagem do jogador
+        //     anim.SetBool("running", true);
+        //     transform.eulerAngles = new Vector2(0f, 0f);     
+        // }
+
+        // // Esquerda
+        // else if (Left){
+        //     // Animação e direção da imagem do jogador
+        //     anim.SetBool("running", true);
+        //     transform.eulerAngles = new Vector2(0f, 180f);
+        // }
+        // else{
+        //     anim.SetBool("running", false);
+        // }
 
     }   
 
@@ -123,42 +141,40 @@ public class Player : MonoBehaviour{
 
     // Função que verifica quando o jogador clica no botão de pular
     public void Veri_Jump(){
-        // Tratamento para o pulo acontecer apenas uma vez (Evitar pulo duplo e pulo infinito)
-        if (!isJumping){
-            Jump_input = true;
-        }
+        jumpFree = true;
+    }
+
+    public void Veri_Jump_False (){
+        jumpFree = false;
     }
 
     // Verificamos se a função Jump foi ativada
     public void Jump()
     {
-        if (Input.GetButtonDown("Jump") && !isJumping){
-    
-            body.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+        if (jumpFree && !isJumping){
+            body.velocity = new Vector2(body.velocity.x, JumpForce);
+            isJumping = true;
+        } 
 
-        }
-        
-        // Input da tela
-        if (Jump_input && !isJumping){
-            // Criamos um impulso no jogador no sentido do eixo Y.
-            body.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-            // Retiramos a condição de pulo do player para o pulo acontecer apenas uma vez (Evitar pulo duplo e pulo infinito)
-            Jump_input = false;
-        
+        if (!jumpFree && body.velocity.y > 0 && isJumping){
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.3f);
+        }    
+    }
+
+    // Método padrão da Unity para verificar Colisões
+    void OnCollisionEnter2D(Collision2D collision){
+    // Verifica se o jogador está colidindo com objetos nas camadas 8 ou 11
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 11){
+            isJumping = false;
         }
     }
 
     // Método padrão da Unity para verificar Colisões
-    void OnCollisionEnter2D(Collision2D collsion){
-            if(collsion.gameObject.layer == 8 || collsion.gameObject.layer == 11){
-                isJumping = false;   
-            }
-        }
-
-    // Método padrão da Unity para verificar Colisões
-    void OnCollisionExit2D(Collision2D collsion){
-            if(collsion.gameObject.layer == 8 || collsion.gameObject.layer == 11){
-                isJumping = true;
-            }
-        }
+    void OnCollisionExit2D(Collision2D collision){
+    // Verifica se o jogador não está mais colidindo com objetos nas camadas 8 ou 11
+    if (collision.gameObject.layer == 8 || collision.gameObject.layer == 11)
+    {
+        isJumping = true;
+    }
+}
 }

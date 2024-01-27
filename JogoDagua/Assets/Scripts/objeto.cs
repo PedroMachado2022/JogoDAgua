@@ -24,6 +24,9 @@ public class objeto : MonoBehaviour {
     [SerializeField]
     private string obj;             //Qual objeto pegamos
 
+    private GameObject obj_status;  //Para acessar o status
+   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         icone.fillAmount = 0;           //Escondemos a imagem que diz que não foi pego o objeto
@@ -33,18 +36,31 @@ public class objeto : MonoBehaviour {
         GameObject objeto = GameObject.Find("Status");      //Vamos acesasr o objeto do status
         status script = objeto.GetComponent<status>();      //Acessar o seu script
 
-        if (obj == "Plataforma")                            //Se o objeto atual é a plataforma
-        { script.Plataforma = true; 
-            Debug.Log("Tocamos na plataforma");
+        if (obj == "Plataforma") {                           //Se o objeto atual é a plataforma
+        
+            script.Plataforma = true; 
+            Debug.Log("Tocamos na plataforma"); 
             Debug.Log(script.Plataforma);
-        }                       //Registramos que pegamos
-        else if (obj=="Filtro")                             //O mesmo para o filtro
-        { script.Filtro = true; }
-        else if (obj == "Canos")                           //Os pregos
-        { script.Pregos = true; }
-        else if (obj == "Caixa")                            //Ou a caixa
-        { script.Caixa = true; }                       
-        else if (obj=="Chave")                              //Ou a chave
-        { script.Chave = true; }
+        }                       
+        else if (obj=="Filtro")  {                           //O mesmo para o filtro
+            
+                script.Filtro = true; 
+        
+        }
+        else if (obj == "Canos") {                          //Os pregos
+            
+                script.Pregos = true; 
+        
+        }
+        else if (obj == "Caixa") {                           //Ou a caixa
+         
+                script.Caixa = true; 
+        
+        }                       
+        else if (obj=="Chave")  {                            //Ou a chave
+         
+                script.Chave = true; 
+         
+        }
     }
 }

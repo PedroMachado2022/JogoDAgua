@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGame_Script : MonoBehaviour {
     
@@ -28,8 +29,9 @@ public class EndGame_Script : MonoBehaviour {
     void EndGame() {
         if (script_status.win_Condition == 6) {
             End_Game.SetActive(true);
-        }else{
-            
+        }
+        else if ((script_status.lose_Condition + script_status.win_Condition) == 6){
+            SceneManager.LoadScene(5);
         }
     }
 }

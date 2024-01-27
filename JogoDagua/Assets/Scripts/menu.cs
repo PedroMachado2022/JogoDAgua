@@ -154,5 +154,6 @@ public class menu : MonoBehaviour {
             script_bd.Insert_in_jogo(jogo,id_do_usuario, difi, 0, 0, 22, 18, mascote, criada, criada);
         }
         SceneManager.LoadScene(2); //Carregamos a próxima cena
+        Time.timeScale = 0f;
     }
 }
